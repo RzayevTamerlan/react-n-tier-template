@@ -1,0 +1,27 @@
+$primary-color: #3498db;
+$hover-color: darken($primary-color, 10%);
+$text-color: #fff;
+$border-radius: 8px;
+$padding: 12px 24px;
+$font-size: 16px;
+$transition-speed: 0.3s;
+
+.largeButton {
+  background-color: $primary-color;
+  color: $text-color;
+  border: none;
+  border-radius: $border-radius;
+  padding: $padding;
+  font-size: $font-size;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color $transition-speed ease-in-out;
+
+  &:hover {
+    background-color: $hover-color;
+  }
+
+  &:active {
+    background-color: darken($primary-color, 15%);
+  }
+}
