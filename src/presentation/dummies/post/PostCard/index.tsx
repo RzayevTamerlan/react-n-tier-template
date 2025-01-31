@@ -35,7 +35,7 @@ type PostCardComponent = FC<PostCardProps> & {
   GotoLink: FC;
 };
 
-const PostCard: FC<PostCardProps> & PostCardComponent = ({ post, children }) => {
+const PostCard: PostCardComponent = ({ post, children }) => {
   return (
     <PostCardContext.Provider value={{ post }}>
       <div className={styles['post-card']}>{children}</div>

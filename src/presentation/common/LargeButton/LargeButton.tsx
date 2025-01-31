@@ -9,7 +9,7 @@ type LargeButtonProps = {
 
 const LargeButton: FC<LargeButtonProps> = ({ children }) => {
   // Cloning each child and merging the className prop
-  const clonedChildren = Children.map(children, child => {
+  const clonedChildren = Children.toArray(children).map(child => {
     if (isValidElement(child)) {
       const existingClassName = child.props.className || '';
       return cloneElement(child as ReactElement<{ className?: string }>, {

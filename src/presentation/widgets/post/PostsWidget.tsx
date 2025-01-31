@@ -14,10 +14,10 @@ const PostsWidget = () => {
   return (
     <List className={styles['posts__list']}>
       {isLoading ? (
-        <p>Loading...</p>
+        <p key="p-tag">Loading...</p>
       ) : (
         data?.map(post => (
-          <PostCard post={post}>
+          <PostCard key={post.id} post={post}>
             <PostCard.Title />
             <PostCard.Body />
             <PostCard.GotoLink />
