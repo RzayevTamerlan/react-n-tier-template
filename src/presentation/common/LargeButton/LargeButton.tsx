@@ -8,11 +8,12 @@ type LargeButtonProps = {
 };
 
 const LargeButton: FC<LargeButtonProps> = ({ children }) => {
-  // Cloning each child and passing the className prop
+  // Cloning each child and merging the className prop
   const clonedChildren = Children.map(children, child => {
     if (isValidElement(child)) {
+      const existingClassName = child.props.className || '';
       return cloneElement(child as ReactElement<{ className?: string }>, {
-        className: styles['large-button'],
+        className: `${existingClassName} ${styles.largeButton}`.trim(),
       });
     }
 

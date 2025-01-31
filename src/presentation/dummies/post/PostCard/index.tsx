@@ -1,6 +1,8 @@
 import { GetPostDto } from '@business/dto/posts/getPostDto.ts';
+import LargeButton from '@presentation/common/LargeButton/LargeButton.tsx';
 import type { FC, ReactNode } from 'react';
 import { createContext, useContext } from 'react';
+import { NavLink } from 'react-router-dom';
 
 import styles from './post-card.module.scss';
 
@@ -27,10 +29,13 @@ type PostCardProps = {
   children: ReactNode;
 };
 
-const Index: FC<PostCardProps> & {
+type PostCardComponent = FC<PostCardProps> & {
   Title: FC;
   Body: FC;
-} = ({ post, children }) => {
+  GotoLink: FC;
+};
+
+const PostCard: FC<PostCardProps> & PostCardComponent = ({ post, children }) => {
   return (
     <PostCardContext.Provider value={{ post }}>
       <div className={styles['post-card']}>{children}</div>
@@ -51,8 +56,19 @@ const Body: FC = () => {
   return <p className={styles['post-card__body']}>{post.body}</p>;
 };
 
-// 4. Привязываем компоненты к PostCard
-Index.Title = Title;
-Index.Body = Body;
+const GotoLink: FC = () => {
+  const { post } = usePostCard();
 
-export default Index;
+  return (
+    <LargeButton>
+      <NavLink to={`/posts/${post.id}`}>Go to post</NavLink>
+    </LargeButton>
+  );
+};
+
+// 4. Привязываем компоненты к PostCard
+PostCard.Title = Title;
+PostCard.Body = Body;
+PostCard.GotoLink = GotoLink;
+
+export default PostCard;

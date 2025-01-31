@@ -20,6 +20,7 @@ const PostsWidget = () => {
           <PostCard post={post}>
             <PostCard.Title />
             <PostCard.Body />
+            <PostCard.GotoLink />
           </PostCard>
         ))
       )}
