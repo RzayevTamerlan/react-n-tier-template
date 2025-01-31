@@ -1,4 +1,4 @@
-import PostsWidget from '@presentation/widgets/post/PostsWidget.tsx';
+import PostsSection from '@presentation/sections/PostsSection.tsx';
 
 const HomePage = () => {
   return (
@@ -7,7 +7,7 @@ const HomePage = () => {
         padding: '20px',
       }}
     >
-      <PostsWidget />
+      <PostsSection />
     </main>
   );
 };
