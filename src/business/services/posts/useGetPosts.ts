@@ -1,7 +1,7 @@
 import { Refetch } from '@business/common/types/refetch.ts';
 import { GetAllPostsDto } from '@business/dto/posts/getAllPostsDto.ts';
 import { HttpError } from '@infrastructure/api/HttpError.ts';
-import { getAllPosts } from '@infrastructure/posts/getAllPosts.ts';
+import { getAllPosts } from '@infrastructure/repositories/posts';
 import { useQuery } from '@tanstack/react-query';
 
 type UseGetPosts = {
